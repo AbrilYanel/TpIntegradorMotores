@@ -12,6 +12,7 @@ public class Enemy_Controller : MonoBehaviour
     public Vector3 respawnPosition = new Vector3(0.05647466f, 0f, 20.90274f);
     public int damageAmount = 10;
     public float damageRate = 1f; // Daño por segundo
+    public int currentHealth = 100;
 
     private Rigidbody rb;
     private bool isPlayerInRange;
@@ -85,4 +86,14 @@ public class Enemy_Controller : MonoBehaviour
             isPlayerInRange = false;
         }
     }
+
+    public void TakeDamage(int damageAmount)
+    {
+        currentHealth -= damageAmount;
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }

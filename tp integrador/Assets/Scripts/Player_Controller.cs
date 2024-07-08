@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player_Controller : MonoBehaviour
 {
     public Transform cameraTransform;
     public float moveSpeed = 5f;
     public float rotationSpeed = 100f;
+    
+    public int currentHealth = 100;
 
     private Rigidbody rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+       
     }
 
     void FixedUpdate()
@@ -34,5 +38,22 @@ public class Player_Controller : MonoBehaviour
             Vector3 moveDirection = transform.forward * vertical * moveSpeed * Time.fixedDeltaTime;
             rb.MovePosition(rb.position + moveDirection);
         }
+    }
+
+    public void TakeDamage(int damageAmount)
+    {
+        currentHealth -= damageAmount;
+        if (currentHealth <= 0)
+        {
+            GameOver();
+        }
+    }
+
+    void GameOver()
+    {
+        // Aquí puedes añadir lógica para reiniciar el juego, mostrar un mensaje de game over, etc.
+        Debug.Log("Game Over");
+        // Ejemplo: reiniciar la escena actual
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

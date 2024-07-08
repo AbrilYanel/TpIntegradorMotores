@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Enemy_Controller : MonoBehaviour
 {
+    public int maxHealth = 150;
+    public int currentHealth;
+
     public Transform player;
     public float moveSpeed = 3f;
     public float detectionRange = 5f;
@@ -12,14 +15,17 @@ public class Enemy_Controller : MonoBehaviour
     public Vector3 respawnPosition = new Vector3(0.05647466f, 0f, 20.90274f);
     public int damageAmount = 10;
     public float damageRate = 1f; // Daño por segundo
-    public int currentHealth = 100;
+
+    public GameObject puertaDerecha;
 
     private Rigidbody rb;
     private bool isPlayerInRange;
+    private bool isDead = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        currentHealth = maxHealth;
         isPlayerInRange = false;
         StartCoroutine(ApplyContinuousDamage());
     }
@@ -59,7 +65,7 @@ public class Enemy_Controller : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(damageRate);
-            if (isPlayerInRange)
+            if (isPlayerInRange && !isDead)
             {
                 Player_Controller playerController = player.GetComponent<Player_Controller>();
                 if (playerController != null)
@@ -69,6 +75,41 @@ public class Enemy_Controller : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void TakeDamage(int damageAmount)
+    {
+        currentHealth -= damageAmount;
+        if (currentHealth <= 0 && !isDead)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        isDead = true;
+        Debug.Log("Enemy died!");
+
+        // Detener la corrutina ApplyContinuousDamage
+        StopCoroutine(ApplyContinuousDamage());
+
+        // Activar el movimiento de la puerta derecha si está asignada
+        if (puertaDerecha != null)
+        {
+            AberturaPuerta doorOpener = puertaDerecha.GetComponent<AberturaPuerta>();
+            if (doorOpener != null)
+            {
+                doorOpener.OpenDoor();
+            }
+            else
+            {
+                Debug.LogError("No se encontró el componente aberturapuerta en " + puertaDerecha.name);
+            }
+        }
+
+        // Desactivar el GameObject del enemigo en lugar de destruirlo
+        gameObject.SetActive(false);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -86,14 +127,6 @@ public class Enemy_Controller : MonoBehaviour
             isPlayerInRange = false;
         }
     }
-
-    public void TakeDamage(int damageAmount)
-    {
-        currentHealth -= damageAmount;
-        if (currentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-
 }
+
+

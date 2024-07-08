@@ -202,3 +202,8 @@ Received Import Request.
 Start importing Assets/Materiales/Texturas/pngtree-slate-texture-background-in-dark-grey-and-black-shades-image_13616760.png using Guid(50b8c0d86127acb41953efadf19af941) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c013a96451a1b560935bb6089ebd55e') in 0.028988 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 2
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: La operación de E/S se anuló por una salida de subproceso o por una solicitud de aplicación.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

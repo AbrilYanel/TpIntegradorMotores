@@ -16,23 +16,18 @@ public class SegundoPuzzle : MonoBehaviour
         if (collision.gameObject == cube)
         {
             Debug.Log("Colisionaron");
-            // Activa los cilindros y hace sus renderers visibles
-            ActivateRenderer(cylinder1);
-            ActivateRenderer(cylinder2);
-            ActivateRenderer(cylinder3);
+            // Activa los cilindros
+            ActivateObject(cylinder1);
+            ActivateObject(cylinder2);
+            ActivateObject(cylinder3);
         }
     }
 
-    void ActivateRenderer(GameObject cylinder)
+    void ActivateObject(GameObject obj)
     {
-        if (cylinder != null)
+        if (obj != null)
         {
-            cylinder.SetActive(true); // Activa el objeto
-            Renderer cylinderRenderer = cylinder.GetComponent<Renderer>();
-            if (cylinderRenderer != null)
-            {
-                cylinderRenderer.enabled = true; // Activa el renderer
-            }
+            obj.SetActive(true); // Activa el objeto
         }
     }
 }

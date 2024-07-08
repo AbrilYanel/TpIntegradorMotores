@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class Player_Controller : MonoBehaviour
 {
     public Transform cameraTransform;
@@ -13,10 +13,14 @@ public class Player_Controller : MonoBehaviour
 
     private Rigidbody rb;
 
+    public Text healthText;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-       
+
+        healthText = GameObject.Find("Vida").GetComponent<Text>();
+        UpdateHealthText();
     }
 
     void FixedUpdate()
@@ -43,9 +47,18 @@ public class Player_Controller : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         currentHealth -= damageAmount;
+        UpdateHealthText();
         if (currentHealth <= 0)
         {
             GameOver();
+        }
+    }
+
+    void UpdateHealthText()
+    {
+        if (healthText != null)
+        {
+            healthText.text = "Vida: " + currentHealth.ToString();
         }
     }
 

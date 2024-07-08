@@ -86,7 +86,7 @@ public class Enemy_Controller : MonoBehaviour
         }
     }
 
-    void Die()
+    protected virtual void Die()
     {
         isDead = true;
         Debug.Log("Enemy died!");

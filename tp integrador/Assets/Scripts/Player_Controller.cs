@@ -3,21 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
 public class Player_Controller : MonoBehaviour
 {
     public Transform cameraTransform;
     public float moveSpeed = 5f;
     public float rotationSpeed = 100f;
-    
+
     public int currentHealth = 100;
 
     private Rigidbody rb;
+    private Animator animator;
 
     public Text healthText;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
 
         healthText = GameObject.Find("Vida").GetComponent<Text>();
         UpdateHealthText();
@@ -42,6 +45,9 @@ public class Player_Controller : MonoBehaviour
             Vector3 moveDirection = transform.forward * vertical * moveSpeed * Time.fixedDeltaTime;
             rb.MovePosition(rb.position + moveDirection);
         }
+
+        // Update the animator parameters
+        animator.SetFloat("speed", Mathf.Abs(horizontal) + Mathf.Abs(vertical));
     }
 
     public void TakeDamage(int damageAmount)

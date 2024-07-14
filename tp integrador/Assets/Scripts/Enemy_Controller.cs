@@ -9,6 +9,7 @@ public class Enemy_Controller : MonoBehaviour
 
     public Transform player;
     public float moveSpeed = 3f;
+    public float rotationSpeed = 5f; // Velocidad de rotación
     public float detectionRange = 5f;
     public Vector2 xBounds = new Vector2(-4.551966f, 4.906345f);
     public Vector2 zBounds = new Vector2(13.74371f, 21.36251f);
@@ -19,12 +20,14 @@ public class Enemy_Controller : MonoBehaviour
     public GameObject puertaDerecha;
 
     private Rigidbody rb;
+    private Animator animator;
     private bool isPlayerInRange;
     private bool isDead = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
         currentHealth = maxHealth;
         isPlayerInRange = false;
         StartCoroutine(ApplyContinuousDamage());
@@ -37,6 +40,10 @@ public class Enemy_Controller : MonoBehaviour
             FollowPlayer();
         }
         CheckBounds();
+
+        // Actualiza el parámetro "Speed" del Animator basado en la velocidad del enemigo
+        float speed = rb.velocity.magnitude;
+        animator.SetFloat("Speed", speed);
     }
 
     bool IsPlayerInRange()
@@ -48,7 +55,14 @@ public class Enemy_Controller : MonoBehaviour
     {
         Vector3 direction = (player.position - transform.position).normalized;
         Vector3 newPosition = transform.position + direction * moveSpeed * Time.fixedDeltaTime;
+
+        // Calcular la rotación hacia el jugador
+        Quaternion lookRotation = Quaternion.LookRotation(player.position - transform.position);
+        Quaternion rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.fixedDeltaTime);
+
+        // Aplicar la nueva posición y rotación al enemigo
         rb.MovePosition(newPosition);
+        rb.MoveRotation(rotation);
     }
 
     void CheckBounds()

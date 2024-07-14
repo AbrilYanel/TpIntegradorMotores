@@ -14,6 +14,7 @@ public class Weapon : MonoBehaviour
 
     void ShootProjectile()
     {
+
         GameObject projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
         // Disparar en la dirección hacia adelante del arma
         Rigidbody rb = projectile.GetComponent<Rigidbody>();

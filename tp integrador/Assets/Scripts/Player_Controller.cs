@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Player_Controller : MonoBehaviour
 {
@@ -48,7 +49,11 @@ public class Player_Controller : MonoBehaviour
 
         // Update the animator parameters
         animator.SetFloat("speed", Mathf.Abs(horizontal) + Mathf.Abs(vertical));
+
+
     }
+  
+   
 
     public void TakeDamage(int damageAmount)
     {

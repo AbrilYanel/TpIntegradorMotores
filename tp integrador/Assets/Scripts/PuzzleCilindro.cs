@@ -6,7 +6,7 @@ public class PuzzleCilindro : MonoBehaviour
 {
     public Color targetColor = Color.yellow; // El color al que cambiará el cilindro
     public GameObject objectToDestroy1;   // Primer objeto a destruir
-    public GameObject objectToDestroy2;   // Segundo objeto a destruir
+    
 
     private Renderer cylinderRenderer;    // Renderer del cilindro
     private bool colorChanged = false;    // Indicador de cambio de color
@@ -16,10 +16,10 @@ public class PuzzleCilindro : MonoBehaviour
         cylinderRenderer = GetComponent<Renderer>();
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        // Verifica si el objeto que colisionó es un proyectil (puedes ajustar la lógica según tu sistema de disparo)
-        if (collision.gameObject.CompareTag("Projectile") && !colorChanged)
+        // Verifica si el objeto que entró en el trigger es un proyectil (puedes ajustar la lógica según tu sistema de disparo)
+        if (other.CompareTag("Projectile") && !colorChanged)
         {
             // Cambia el color del cilindro
             cylinderRenderer.material.color = targetColor;
@@ -30,10 +30,7 @@ public class PuzzleCilindro : MonoBehaviour
             {
                 Destroy(objectToDestroy1);
             }
-            if (objectToDestroy2 != null)
-            {
-                Destroy(objectToDestroy2);
-            }
+            
         }
     }
 }

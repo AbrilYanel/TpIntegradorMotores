@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy_Controller : MonoBehaviour
 {
     public int maxHealth = 150;
-    public int currentHealth;
+    private int currentHealth;
 
     public Transform player;
     public float moveSpeed = 3f;
@@ -18,11 +19,12 @@ public class Enemy_Controller : MonoBehaviour
     public float damageRate = 1f; // Daño por segundo
 
     public GameObject puertaDerecha;
+    public Slider healthBar;
 
-    protected Rigidbody rb;
-    protected Animator animator;
-    protected bool isPlayerInRange;
-    protected bool isDead = false;
+    private Rigidbody rb;
+    private Animator animator;
+    private bool isPlayerInRange;
+    private bool isDead = false;
 
     void Start()
     {
@@ -31,6 +33,11 @@ public class Enemy_Controller : MonoBehaviour
         currentHealth = maxHealth;
         isPlayerInRange = false;
         StartCoroutine(ApplyContinuousDamage());
+
+        // Inicializa el Slider de la barra de salud
+        healthBar = GameObject.Find("EnemyHealthBar").GetComponent<Slider>();
+        healthBar.maxValue = maxHealth;
+        healthBar.value = currentHealth;
     }
 
     void FixedUpdate()
@@ -94,13 +101,20 @@ public class Enemy_Controller : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         currentHealth -= damageAmount;
+
+        // Actualiza el Slider de la barra de salud
+        if (healthBar.value != currentHealth)
+        {
+            healthBar.value = currentHealth;
+        }
+
         if (currentHealth <= 0 && !isDead)
         {
             Die();
         }
     }
 
-    protected virtual void Die()
+    void Die()
     {
         isDead = true;
         Debug.Log("Enemy died!");
@@ -118,7 +132,7 @@ public class Enemy_Controller : MonoBehaviour
             }
             else
             {
-                Debug.LogError("No se encontró el componente aberturapuerta en " + puertaDerecha.name);
+                Debug.LogError("No se encontró el componente AberturaPuerta en " + puertaDerecha.name);
             }
         }
 

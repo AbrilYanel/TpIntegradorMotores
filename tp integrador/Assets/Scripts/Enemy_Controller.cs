@@ -19,10 +19,10 @@ public class Enemy_Controller : MonoBehaviour
 
     public GameObject puertaDerecha;
 
-    private Rigidbody rb;
-    private Animator animator;
-    private bool isPlayerInRange;
-    private bool isDead = false;
+    protected Rigidbody rb;
+    protected Animator animator;
+    protected bool isPlayerInRange;
+    protected bool isDead = false;
 
     void Start()
     {

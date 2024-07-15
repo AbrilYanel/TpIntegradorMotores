@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,19 +12,29 @@ public class Player_Controller : MonoBehaviour
     public float moveSpeed = 5f;
     public float rotationSpeed = 100f;
 
-    public int currentHealth = 100;
+    public int maxHealth = 100;
+    private int currentHealth;
 
     private Rigidbody rb;
     private Animator animator;
 
     public Text healthText;
+    public Slider healthBar;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
 
+        currentHealth = maxHealth;
+
         healthText = GameObject.Find("Vida").GetComponent<Text>();
+        healthBar = GameObject.Find("HealthBar").GetComponent<Slider>();
+
+        // Inicializa el Slider de la barra de salud
+        healthBar.maxValue = maxHealth;
+        healthBar.value = currentHealth;
+
         UpdateHealthText();
     }
 
@@ -49,15 +60,12 @@ public class Player_Controller : MonoBehaviour
 
         // Update the animator parameters
         animator.SetFloat("speed", Mathf.Abs(horizontal) + Mathf.Abs(vertical));
-
-
     }
-  
-   
 
     public void TakeDamage(int damageAmount)
     {
         currentHealth -= damageAmount;
+
         UpdateHealthText();
         if (currentHealth <= 0)
         {
@@ -67,6 +75,10 @@ public class Player_Controller : MonoBehaviour
 
     void UpdateHealthText()
     {
+        if (healthBar.value != currentHealth)
+        {
+            healthBar.value = currentHealth;
+        }
         if (healthText != null)
         {
             healthText.text = "Vida: " + currentHealth.ToString();

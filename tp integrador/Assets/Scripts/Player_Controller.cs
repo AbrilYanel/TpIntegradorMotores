@@ -18,7 +18,9 @@ public class Player_Controller : MonoBehaviour
     private Rigidbody rb;
     private Animator animator;
 
-   
+    public GameObject projectilePrefab;
+    public Transform shootPoint;
+
     public Slider healthBar;
 
     void Start()
@@ -60,6 +62,13 @@ public class Player_Controller : MonoBehaviour
 
         // Update the animator parameters
         animator.SetFloat("speed", Mathf.Abs(horizontal) + Mathf.Abs(vertical));
+
+        if (Input.GetMouseButtonDown(0)) // Disparar con click izquierdo
+        {
+            animator.SetTrigger("isAttacking");
+            ShootProjectile();
+        }
+
     }
 
     public void TakeDamage(int damageAmount)
@@ -82,7 +91,22 @@ public class Player_Controller : MonoBehaviour
         
     }
 
-    void GameOver()
+    void ShootProjectile()
+    {
+        if (shootPoint != null)
+        {
+            GameObject projectile = Instantiate(projectilePrefab, shootPoint.position, shootPoint.rotation);
+            // Disparar en la dirección hacia adelante del shootPoint
+            Rigidbody rb = projectile.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.velocity = shootPoint.forward * 10f; // Velocidad del proyectil
+                Destroy(projectile, 1f);
+            }
+        }
+    }
+
+        void GameOver()
     {
         // Aquí puedes añadir lógica para reiniciar el juego, mostrar un mensaje de game over, etc.
         Debug.Log("Game Over");

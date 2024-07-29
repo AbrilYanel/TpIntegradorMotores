@@ -2,184 +2,98 @@ using UnityEngine;
 using System.Collections;
 public class EnemyBoss : MonoBehaviour
 {
-    public int maxHealth = 150;
+    public int maxHealth = 500;
     private int currentHealth;
 
-    public Transform player;
     public float moveSpeed = 3f;
-    public float rotationSpeed = 5f;
-    public float detectionRange = 5f;
+    public float rotationSpeed = 2f;
+    public float detectionRange = 15f;
+    public float shootingRange = 10f;
+    public float shootingRate = 1f; // Proyectiles por segundo
+    public int damageAmount = 20;
 
-    public Vector2 xBounds = new Vector2(-4.551966f, 4.906345f);
-    public Vector2 zBounds = new Vector2(13.74371f, 21.36251f);
-    public Vector3 respawnPosition = new Vector3(0.05647466f, 0f, 20.90274f);
+    public GameObject projectilePrefab;
+    public Transform projectileSpawnPoint;
+    public GameObject dropObject; // Objeto que se soltará al morir
 
-    public GameObject chestPrefab; // Prefab del cofre a instanciar
-    public Vector3 chestSpawnPosition; // Posición de spawn del cofre
+    public Vector2 boundsX = new Vector2(-10, 10);
+    public Vector2 boundsZ = new Vector2(-10, 10);
 
-    public GameObject projectilePrefab; // Prefab del proyectil a disparar
-    public Transform firePoint; // Punto desde el cual se disparan los proyectiles
-    public float fireRate = 2f; // Tiempo entre disparos
-    public float projectileSpeed = 10f; // Velocidad del proyectil
+    private Transform player;
+    private float lastShotTime;
 
-    public int damageAmount = 10;
-    public float damageRate = 1f; // Daño por segundo
-
-    private Rigidbody rb;
-    private bool isPlayerInRange;
-    private bool isDead = false;
-    private float nextFireTime = 0f; // Tiempo para el próximo disparo
-
-    void Start()
+    private void Start()
     {
-        rb = GetComponent<Rigidbody>();
         currentHealth = maxHealth;
-        isPlayerInRange = false;
-        StartCoroutine(ApplyContinuousDamage());
-
-        // Asegúrate de que Use Gravity está activado
-        if (rb != null)
-        {
-            rb.useGravity = true;
-            rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
-        }
-
-        Debug.Log("EnemyBoss initialized.");
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    void Update()
+    private void Update()
     {
-        isPlayerInRange = IsPlayerInRange();
+        if (player == null) return;
 
-        // Solo dispara si el jugador está en rango
-        if (isPlayerInRange && Time.time >= nextFireTime && !isDead && player != null)
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+        if (distanceToPlayer <= detectionRange)
         {
-            ShootProjectile();
-            nextFireTime = Time.time + fireRate;
-        }
-    }
+            MoveTowardsPlayer();
+            RotateTowardsPlayer();
 
-    void FixedUpdate()
-    {
-        if (isPlayerInRange)
-        {
-            FollowPlayer();
-        }
-        CheckBounds();
-
-        // Asegúrate de que el Rigidbody del Boss no se esté moviendo hacia abajo
-        if (rb != null && rb.velocity.y < 0)
-        {
-            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-        }
-    }
-
-    bool IsPlayerInRange()
-    {
-        bool inRange = Vector3.Distance(transform.position, player.position) <= detectionRange;
-        Debug.Log("IsPlayerInRange: " + inRange);
-        return inRange;
-    }
-
-    void FollowPlayer()
-    {
-        Vector3 direction = (player.position - transform.position).normalized;
-        Vector3 newPosition = transform.position + direction * moveSpeed * Time.fixedDeltaTime;
-
-        // Calcular la rotación hacia el jugador
-        Quaternion lookRotation = Quaternion.LookRotation(player.position - transform.position);
-        Quaternion rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.fixedDeltaTime);
-
-        // Aplicar la nueva posición y rotación al enemigo
-        rb.MovePosition(newPosition);
-        rb.MoveRotation(rotation);
-
-        Debug.Log("Following player to position: " + newPosition);
-    }
-
-    void CheckBounds()
-    {
-        if (transform.position.x < xBounds.x || transform.position.x > xBounds.y ||
-            transform.position.z < zBounds.x || transform.position.z > zBounds.y)
-        {
-            rb.position = respawnPosition;
-            Debug.Log("EnemyBoss out of bounds, respawning at: " + respawnPosition);
-        }
-    }
-
-    IEnumerator ApplyContinuousDamage()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(damageRate);
-            if (isPlayerInRange && !isDead)
+            if (distanceToPlayer <= shootingRange && Time.time > lastShotTime + 1f / shootingRate)
             {
-                Player_Controller playerController = player.GetComponent<Player_Controller>();
-                if (playerController != null)
-                {
-                    playerController.TakeDamage(damageAmount);
-                    Debug.Log("Player damaged by: " + damageAmount);
-                }
+                ShootProjectile();
+                lastShotTime = Time.time;
             }
         }
     }
 
-    void ShootProjectile()
+    private void MoveTowardsPlayer()
     {
-        if (projectilePrefab != null && firePoint != null)
+        Vector3 direction = (player.position - transform.position).normalized;
+        Vector3 newPosition = transform.position + direction * moveSpeed * Time.deltaTime;
+
+        newPosition.x = Mathf.Clamp(newPosition.x, boundsX.x, boundsX.y);
+        newPosition.z = Mathf.Clamp(newPosition.z, boundsZ.x, boundsZ.y);
+
+        transform.position = newPosition;
+    }
+
+    private void RotateTowardsPlayer()
+    {
+        Vector3 direction = (player.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
+    }
+
+    private void ShootProjectile()
+    {
+        if (projectilePrefab != null && projectileSpawnPoint != null)
         {
-            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+            GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                Vector3 direction = (player.position - firePoint.position).normalized;
-                rb.velocity = direction * projectileSpeed; // Ajusta la velocidad del proyectil
-                Debug.Log("Projectile shot at speed: " + projectileSpeed);
+                rb.velocity = transform.forward * 10f; // Velocidad del proyectil
+                Destroy(projectile, 2f);
             }
         }
     }
 
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(int damage)
     {
-        currentHealth -= damageAmount;
-        if (currentHealth <= 0 && !isDead)
+        currentHealth -= damage;
+        if (currentHealth <= 0)
         {
             Die();
         }
     }
 
-    void Die()
+    private void Die()
     {
-        isDead = true;
-        Debug.Log("Enemy died!");
-
-        // Detener la corrutina ApplyContinuousDamage
-        StopCoroutine(ApplyContinuousDamage());
-
-        // Spawnear el cofre en la posición designada
-        if (chestPrefab != null)
+        if (dropObject != null)
         {
-            Instantiate(chestPrefab, chestSpawnPosition, Quaternion.identity);
+            Instantiate(dropObject, transform.position, Quaternion.identity);
         }
-
-        // Desactivar el GameObject del enemigo en lugar de destruirlo
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            isPlayerInRange = true;
-        }
-    }
-
-    void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            isPlayerInRange = false;
-        }
-    }
-
 }

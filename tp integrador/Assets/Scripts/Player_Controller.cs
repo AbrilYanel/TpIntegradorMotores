@@ -18,7 +18,7 @@ public class Player_Controller : MonoBehaviour
     private Rigidbody rb;
     private Animator animator;
 
-    public Text healthText;
+   
     public Slider healthBar;
 
     void Start()
@@ -28,8 +28,8 @@ public class Player_Controller : MonoBehaviour
 
         currentHealth = maxHealth;
 
-        healthText = GameObject.Find("Vida").GetComponent<Text>();
-        healthBar = GameObject.Find("HealthBar").GetComponent<Slider>();
+        
+       
 
         // Inicializa el Slider de la barra de salud
         healthBar.maxValue = maxHealth;
@@ -79,10 +79,7 @@ public class Player_Controller : MonoBehaviour
         {
             healthBar.value = currentHealth;
         }
-        if (healthText != null)
-        {
-            healthText.text = "Vida: " + currentHealth.ToString();
-        }
+        
     }
 
     void GameOver()

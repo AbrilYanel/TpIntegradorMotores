@@ -35,7 +35,7 @@ public class Enemy_Controller : MonoBehaviour
         StartCoroutine(ApplyContinuousDamage());
 
         // Inicializa el Slider de la barra de salud
-        healthBar = GameObject.Find("EnemyHealthBar").GetComponent<Slider>();
+       
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
     }

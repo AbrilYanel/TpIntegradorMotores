@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo>
+	<Project Name="tp integrador_WwiseProject" GUID="{1947EFE0-B549-4423-8EEA-AE02F63E082E}" Generator="2022.1.14.8476"/>
+	<CacheRoot>../../../../tp integrador_WwiseProject/.cache</CacheRoot>
+	<Platforms>
+		<Platform Name="Mac" GUID="{1628326C-E3EA-4060-9165-F6F335B29A63}" BasePlatform="Mac" BasePlatformGUID="{9C6217D5-DD11-4795-87C1-6CE02853C540}" Path="../../../../tp integrador_WwiseProject/GeneratedSoundBanks/Mac"/>
+		<Platform Name="Windows" GUID="{883B8BE3-C7BC-42EB-9A4F-37BFD924F811}" BasePlatform="Windows" BasePlatformGUID="{6E0CB257-C6C8-4C5C-8366-2740DFC441EB}" Path="../../../../tp integrador_WwiseProject/GeneratedSoundBanks/Windows"/>
+	</Platforms>
+	<Languages>
+		<Language Name="English(US)" Id="684519430" GUID="{AD301CDF-84DB-4DC0-B516-2159FA1147FD}" Default="true" UseAsStandIn="true"/>
+	</Languages>
+	<FileHash>{0B6841C4-991E-44CE-BDBD-24649320DEAB}</FileHash>
+</ProjectInfo>

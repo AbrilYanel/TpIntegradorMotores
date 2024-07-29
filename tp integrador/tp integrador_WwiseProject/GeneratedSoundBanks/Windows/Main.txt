@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	3715251287	Sonido_Ambiente			\Default Work Unit\Sonido_Ambiente	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	29611181	95	C:\Users\Cheee\OneDrive\Documentos\GitHub\TpIntegrador\tp integrador\tp integrador_WwiseProject\.cache\Windows\SFX\95_04734174.wem		\Actor-Mixer Hierarchy\Default Work Unit\95		21690000
+

@@ -8878,6 +8878,8 @@ MonoBehaviour:
   cameraTransform: {fileID: 330585546}
   moveSpeed: 5
   rotationSpeed: 200
+  dodgeSpeed: 2
+  dodgeDuration: 0.2
   maxHealth: 100
   projectilePrefab: {fileID: 8649317717449196848, guid: 2edbcf0844a1c48439b79c65062cd925,
     type: 3}

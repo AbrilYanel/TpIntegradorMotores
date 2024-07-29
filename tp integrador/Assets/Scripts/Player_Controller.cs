@@ -11,6 +11,8 @@ public class Player_Controller : MonoBehaviour
     public Transform cameraTransform;
     public float moveSpeed = 5f;
     public float rotationSpeed = 100f;
+    public float dodgeSpeed = 10f; // Velocidad del esquivar
+    public float dodgeDuration = 0.2f; // Duración del esquivar
 
     public int maxHealth = 100;
     private int currentHealth;
@@ -23,15 +25,14 @@ public class Player_Controller : MonoBehaviour
 
     public Slider healthBar;
 
+    private bool isDodging = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
 
         currentHealth = maxHealth;
-
-        
-       
 
         // Inicializa el Slider de la barra de salud
         healthBar.maxValue = maxHealth;
@@ -42,33 +43,57 @@ public class Player_Controller : MonoBehaviour
 
     void FixedUpdate()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-        // Rotate the player based on horizontal input
-        if (horizontal != 0)
+        if (!isDodging)
         {
-            float rotation = horizontal * rotationSpeed * Time.fixedDeltaTime;
-            Quaternion turnOffset = Quaternion.Euler(0, rotation, 0);
-            rb.MoveRotation(rb.rotation * turnOffset);
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
+
+            // Rotate the player based on horizontal input
+            if (horizontal != 0)
+            {
+                float rotation = horizontal * rotationSpeed * Time.fixedDeltaTime;
+                Quaternion turnOffset = Quaternion.Euler(0, rotation, 0);
+                rb.MoveRotation(rb.rotation * turnOffset);
+            }
+
+            // Move the player forward or backward
+            if (vertical != 0)
+            {
+                Vector3 moveDirection = transform.forward * vertical * moveSpeed * Time.fixedDeltaTime;
+                rb.MovePosition(rb.position + moveDirection);
+            }
+
+            // Update the animator parameters
+            animator.SetFloat("speed", Mathf.Abs(horizontal) + Mathf.Abs(vertical));
+
+            if (Input.GetMouseButtonDown(0)) // Disparar con click izquierdo
+            {
+                animator.SetTrigger("isAttacking");
+                ShootProjectile();
+            }
+
+            if (Input.GetMouseButtonDown(1)) // Esquivar con click derecho
+            {
+                StartCoroutine(Dodge());
+            }
+        }
+    }
+
+    IEnumerator Dodge()
+    {
+        isDodging = true;
+        animator.SetTrigger("isDodging");
+
+        Vector3 dodgeDirection = transform.forward;
+        float dodgeEndTime = Time.time + dodgeDuration;
+
+        while (Time.time < dodgeEndTime)
+        {
+            rb.MovePosition(rb.position + dodgeDirection * dodgeSpeed * Time.fixedDeltaTime);
+            yield return null;
         }
 
-        // Move the player forward or backward
-        if (vertical != 0)
-        {
-            Vector3 moveDirection = transform.forward * vertical * moveSpeed * Time.fixedDeltaTime;
-            rb.MovePosition(rb.position + moveDirection);
-        }
-
-        // Update the animator parameters
-        animator.SetFloat("speed", Mathf.Abs(horizontal) + Mathf.Abs(vertical));
-
-        if (Input.GetMouseButtonDown(0)) // Disparar con click izquierdo
-        {
-            animator.SetTrigger("isAttacking");
-            ShootProjectile();
-        }
-
+        isDodging = false;
     }
 
     public void TakeDamage(int damageAmount)
@@ -88,7 +113,6 @@ public class Player_Controller : MonoBehaviour
         {
             healthBar.value = currentHealth;
         }
-        
     }
 
     void ShootProjectile()
@@ -106,7 +130,7 @@ public class Player_Controller : MonoBehaviour
         }
     }
 
-        void GameOver()
+    void GameOver()
     {
         // Aquí puedes añadir lógica para reiniciar el juego, mostrar un mensaje de game over, etc.
         Debug.Log("Game Over");

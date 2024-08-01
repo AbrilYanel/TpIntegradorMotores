@@ -13,10 +13,14 @@ public class EnemyBoss : MonoBehaviour
     public GameObject fireballPrefab; // Prefab de la bola de fuego
     public Transform fireballSpawnPoint; // Punto de spawn de la bola de fuego
     public float fireballCooldown = 5f; // Tiempo entre disparos de la bola de fuego
+    public float fireballLaunchForce = 10f; // Fuerza de lanzamiento de la bola de fuego
     public float teleportCooldown = 5f; // Tiempo entre teletransportaciones
     public float teleportHealthThreshold = 50f; // Umbral de salud para empezar a teletransportarse
     public Transform teleportAreaCenter; // Centro del área de teletransportación
     public float teleportAreaRadius = 10f; // Radio del área de teletransportación
+    public GameObject dropOnDeath; // GameObject que se dejará en una posición designada al morir
+    public Transform dropPosition; // Posición donde se dejará el GameObject al morir
+    public Animator animator; // Referencia al componente Animator
 
     [SerializeField]
     private int currentHealth;
@@ -24,6 +28,7 @@ public class EnemyBoss : MonoBehaviour
     private bool canAttack = true; // Controla si el jefe puede atacar
     private bool canShootFireball = true; // Controla si el jefe puede disparar una bola de fuego
     private bool canTeleport = true; // Controla si el jefe puede teletransportarse
+    public float moveSpeed = 3f; // Velocidad de movimiento del jefe
 
     private void Start()
     {
@@ -60,7 +65,13 @@ public class EnemyBoss : MonoBehaviour
 
     private void FollowAndLookAtPlayer()
     {
-        transform.position = Vector3.MoveTowards(transform.position, player.position, Time.deltaTime * 3f);
+        // Activar animación de movimiento
+        if (animator != null)
+        {
+            animator.SetBool("IsMoving", true);
+        }
+
+        transform.position = Vector3.MoveTowards(transform.position, player.position, Time.deltaTime * moveSpeed);
         transform.LookAt(player);
     }
 
@@ -83,7 +94,11 @@ public class EnemyBoss : MonoBehaviour
         canShootFireball = false;
         Debug.Log("Boss shooting fireball!");
         GameObject fireball = Instantiate(fireballPrefab, fireballSpawnPoint.position, fireballSpawnPoint.rotation);
-        fireball.GetComponent<Rigidbody>().velocity = (player.position - fireballSpawnPoint.position).normalized * 10f; // Velocidad de la bola de fuego
+        Rigidbody rb = fireball.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.velocity = (player.position - fireballSpawnPoint.position).normalized * fireballLaunchForce; // Usar la fuerza de lanzamiento especificada
+        }
         yield return new WaitForSeconds(fireballCooldown);
         canShootFireball = true;
     }
@@ -124,7 +139,27 @@ public class EnemyBoss : MonoBehaviour
         isDead = true;
         Debug.Log("Boss died!");
 
-        // Puedes agregar aquí la lógica adicional para cuando el jefe muere
+        // Desactivar el GameObject del jefe
         gameObject.SetActive(false);
+
+        // Ocultar la barra de salud
+        if (healthBarSlider != null)
+        {
+            healthBarSlider.gameObject.SetActive(false);
+        }
+
+        // Detener animación de movimiento
+        if (animator != null)
+        {
+            animator.SetBool("IsMoving", false);
+            // Iniciar animación de muerte aquí (si se tiene)
+            // animator.SetTrigger("Die");
+        }
+
+        // Dejar el GameObject en la posición designada
+        if (dropOnDeath != null && dropPosition != null)
+        {
+            Instantiate(dropOnDeath, dropPosition.position, dropPosition.rotation);
+        }
     }
 }

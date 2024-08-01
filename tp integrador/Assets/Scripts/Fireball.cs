@@ -13,12 +13,12 @@ public class Fireball : MonoBehaviour
         Destroy(gameObject, lifetime);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             // Obtén el componente Player_Controller del jugador
-            Player_Controller playerController = collision.gameObject.GetComponent<Player_Controller>();
+            Player_Controller playerController = other.GetComponent<Player_Controller>();
             if (playerController != null)
             {
                 playerController.TakeDamage((int)damage); // Aplica el daño al jugador

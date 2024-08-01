@@ -52,6 +52,11 @@ public class TrialManager : MonoBehaviour
         {
             healthBar.gameObject.SetActive(false); // Asegúrate de que la barra de vida esté oculta al inicio
         }
+
+        if (boss != null)
+        {
+            boss.gameObject.SetActive(false); // Desactivar al jefe al inicio
+        }
     }
 
     public void ActivateChallenge()
@@ -68,18 +73,6 @@ public class TrialManager : MonoBehaviour
         yield return MoveGroupSequential(rightSpheres, rightStartPositions, Vector3.left, rightArrow);
         yield return MoveGroupSequential(leftSpheres, leftStartPositions, Vector3.right, leftArrow);
 
-        // Mostrar la barra de vida del jefe
-        if (healthBar != null)
-        {
-            healthBar.gameObject.SetActive(true);
-        }
-
-        // Activar el movimiento del jefe
-        if (boss != null)
-        {
-            boss.StartMoving();
-        }
-
         // Movimiento aleatorio hasta que pasen 15 segundos
         while (Time.time - startTime < challengeDuration)
         {
@@ -92,6 +85,17 @@ public class TrialManager : MonoBehaviour
         DeactivateAllSpheres(frontSpheres, frontArrow);
         DeactivateAllSpheres(leftSpheres, leftArrow);
         DeactivateAllSpheres(rightSpheres, rightArrow);
+
+        // Mostrar la barra de vida del jefe y activar al jefe después de desactivar las esferas y flechas
+        if (healthBar != null)
+        {
+            healthBar.gameObject.SetActive(true);
+        }
+
+        if (boss != null)
+        {
+            boss.gameObject.SetActive(true); // Activar al jefe
+        }
     }
 
     private IEnumerator MoveGroupSequential(Transform[] spheres, Vector3[] startPositions, Vector3 direction, Image arrow)
@@ -145,9 +149,9 @@ public class TrialManager : MonoBehaviour
         for (int i = 0; i < 2; i++)
         {
             arrow.enabled = true;  // Mostrar la flecha
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.15f);
             arrow.enabled = false; // Ocultar la flecha
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.15f);
         }
     }
 

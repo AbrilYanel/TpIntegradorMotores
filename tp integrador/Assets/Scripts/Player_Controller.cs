@@ -146,6 +146,14 @@ public class Player_Controller : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Front") || collision.gameObject.CompareTag("Left") || collision.gameObject.CompareTag("Right"))
+        {
+            TakeDamage(20);
+        }
+    }
+
     void GameOver()
     {
         // Aquí puedes añadir lógica para reiniciar el juego, mostrar un mensaje de game over, etc.

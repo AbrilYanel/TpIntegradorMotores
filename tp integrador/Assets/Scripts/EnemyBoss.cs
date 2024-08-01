@@ -1,67 +1,102 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.ProBuilder;
+using UnityEngine.UI;
 public class EnemyBoss : MonoBehaviour
 {
-    public Transform player; // Referencia al transform del jugador
-    public float followSpeed = 5f; // Velocidad de seguimiento
-    public float rotationSpeed = 2f; // Velocidad de rotación
-    public float detectionRange = 20f; // Rango de detección
+    public int health = 250;
+    public float moveSpeed = 1f;
+    public float leftLimit = -10f;
+    public float rightLimit = 10f;
 
-    public int maxHealth = 500; // Vida máxima del jefe
-    public int currentHealth; // Vida actual del jefe
+    public Slider healthBarSlider; // Referencia al Slider de la barra de vida
+
+    // Variable para visualizar la vida actual en el Inspector
+    [SerializeField]
+    private int currentHealth;
+
+    private Vector3 startPosition;
+    private bool movingRight = true;
+    private bool canMove = false; // Controla si el jefe puede moverse
+    private bool isDead = false; // Estado del jefe
 
     private void Start()
     {
-        currentHealth = maxHealth; // Inicializa la vida actual
+        startPosition = transform.position;
+
+        if (healthBarSlider != null)
+        {
+            healthBarSlider.maxValue = health;
+            healthBarSlider.value = health;
+            healthBarSlider.gameObject.SetActive(false); // Ocultar la barra de vida al inicio
+        }
+
+        // Inicializa la vida actual
+        currentHealth = health;
     }
 
     private void Update()
     {
-        // Verificar la distancia al jugador
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
-        if (distanceToPlayer <= detectionRange)
+        if (canMove && !isDead)
         {
-            // Mover al jefe hacia el jugador
-            Vector3 directionToPlayer = (player.position - transform.position).normalized;
-            transform.position += directionToPlayer * followSpeed * Time.deltaTime;
-
-            // Rotar el jefe para mirar hacia el jugador
-            Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            Move();
         }
     }
 
-    // Método para recibir daño
+    private void Move()
+    {
+        if (movingRight)
+        {
+            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+
+            if (transform.position.x >= rightLimit)
+            {
+                movingRight = false;
+            }
+        }
+        else
+        {
+            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+
+            if (transform.position.x <= leftLimit)
+            {
+                movingRight = true;
+            }
+        }
+    }
+
     public void TakeDamage(int damageAmount)
     {
+        if (isDead) return; // No recibir daño si ya está muerto
+
         currentHealth -= damageAmount;
+
+        // Actualiza el Slider de la barra de salud
+        if (healthBarSlider != null)
+        {
+            healthBarSlider.value = currentHealth;
+        }
+
         if (currentHealth <= 0)
         {
             Die();
         }
     }
 
-    // Método que se llama cuando el jefe muere
-    void Die()
+    private void Die()
     {
-        // Lógica para manejar la muerte del jefe, como eliminar el objeto o reproducir animación
-        Destroy(gameObject); // Ejemplo: eliminar el jefe del juego
+        if (isDead) return; // No procesar la muerte si ya está muerto
+
+        isDead = true;
+        Debug.Log("Boss died!");
+
+        // Puedes agregar aquí la lógica adicional para cuando el jefe muere
+        // Por ejemplo, desactivar el jefe en lugar de destruirlo
+        gameObject.SetActive(false);
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void StartMoving()
     {
-        // Verifica si el objeto colisionado es un proyectil
-        if (other.CompareTag("Projectile"))
-        {
-            // Asumiendo que el proyectil tiene un componente Proyectil que define el daño
-            Proyectil projectile = other.GetComponent<Proyectil>();
-            if (projectile != null)
-            {
-                TakeDamage(projectile.damageAmount); // Aplica el daño al jefe
-                Destroy(other.gameObject); // Destruye el proyectil
-            }
-        }
+        canMove = true; // Permite que el jefe comience a moverse
     }
 }

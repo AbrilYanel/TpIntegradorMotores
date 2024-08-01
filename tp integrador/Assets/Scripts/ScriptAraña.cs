@@ -113,6 +113,6 @@ public class ScriptAraña : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

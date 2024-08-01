@@ -28,6 +28,14 @@ public class Proyectil : MonoBehaviour
             }
 
             Destroy(gameObject, destroyDelay);
+        } else if (other.CompareTag("Spider"))
+        {
+            ScriptAraña araña = other.GetComponent<ScriptAraña>();
+            if (araña != null)
+            {
+                araña.TakeDamage(damageAmount);
+                Debug.Log("Spider damaged");
+            }
         }
     }
 }

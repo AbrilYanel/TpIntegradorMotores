@@ -30,7 +30,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{09EF23CF-27E0-51E5-575D-F06B7561AEE5}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{28E0F710-B541-D5CC-5CDD-52AF2CCCD8E2}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -72,7 +72,7 @@
 				</File>
 				<File Id="1043565202" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>end_portal_activation.wav</ShortName>
-					<CachePath>SFX/end_portal_activation_C5579977.wem</CachePath>
+					<CachePath>SFX/end_portal_activation_10C4C929.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
@@ -94,7 +94,7 @@
 						<MediaRef Id="247388810"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1902176497" Name="PortalTrigger" DurationType="Infinite">
+				<Event Id="1902176497" Name="PortalTrigger" DurationType="OneShot" DurationMin="7.081338" DurationMax="7.081338">
 					<MediaRefs>
 						<MediaRef Id="1043565202"/>
 					</MediaRefs>
@@ -131,5 +131,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{CA6A0EA4-3BF4-4ECC-A97D-D61CF4803C90}</FileHash>
+	<FileHash>{6D08F7E4-55C5-A1EE-0569-0B1D3E368A8F}</FileHash>
 </SoundBanksInfo>

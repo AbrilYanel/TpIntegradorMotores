@@ -30,6 +30,8 @@ public class EnemyBoss : MonoBehaviour
     private bool canTeleport = true; // Controla si el jefe puede teletransportarse
     public float moveSpeed = 3f; // Velocidad de movimiento del jefe
 
+    private Vector3 lastPosition; // Última posición del jefe
+
     private void Start()
     {
         currentHealth = health;
@@ -40,6 +42,8 @@ public class EnemyBoss : MonoBehaviour
             healthBarSlider.value = currentHealth;
             healthBarSlider.gameObject.SetActive(true); // Asegúrate de que la barra de vida esté visible
         }
+
+        lastPosition = transform.position;
     }
 
     private void Update()
@@ -61,18 +65,30 @@ public class EnemyBoss : MonoBehaviour
         {
             StartCoroutine(Teleport());
         }
+
+        UpdateMovementAnimation();
+        lastPosition = transform.position; // Actualizar la última posición al final del cuadro
     }
 
     private void FollowAndLookAtPlayer()
     {
-        // Activar animación de movimiento
-        if (animator != null)
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+        if (distanceToPlayer > meleeRange)
         {
-            animator.SetBool("IsMoving", true);
+            transform.position = Vector3.MoveTowards(transform.position, player.position, Time.deltaTime * moveSpeed);
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, player.position, Time.deltaTime * moveSpeed);
         transform.LookAt(player);
+    }
+
+    private void UpdateMovementAnimation()
+    {
+        if (animator != null)
+        {
+            bool isMoving = Vector3.Distance(transform.position, lastPosition) > 0.01f; // Comparar la posición actual con la última posición
+            animator.SetBool("IsMoving", isMoving);
+        }
     }
 
     private IEnumerator MeleeAttack()
@@ -140,7 +156,7 @@ public class EnemyBoss : MonoBehaviour
         Debug.Log("Boss died!");
 
         // Desactivar el GameObject del jefe
-        gameObject.SetActive(false);
+       
 
         // Ocultar la barra de salud
         if (healthBarSlider != null)
@@ -153,7 +169,7 @@ public class EnemyBoss : MonoBehaviour
         {
             animator.SetBool("IsMoving", false);
             // Iniciar animación de muerte aquí (si se tiene)
-            // animator.SetTrigger("Die");
+            animator.SetBool("Die", true);
         }
 
         // Dejar el GameObject en la posición designada
@@ -161,5 +177,7 @@ public class EnemyBoss : MonoBehaviour
         {
             Instantiate(dropOnDeath, dropPosition.position, dropPosition.rotation);
         }
+
+        gameObject.SetActive(false);
     }
 }

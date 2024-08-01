@@ -212,7 +212,6 @@
 				</RandomSequenceContainer>
 				<Sound Name="end_portal_activation" ID="{832B171A-E954-4D7E-A8E0-1E281748BDF2}" ShortID="500498482">
 					<PropertyList>
-						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
 								<Value>-20</Value>

@@ -15,7 +15,7 @@ public class Player_Controller : MonoBehaviour
     public float dodgeDuration = 0.2f; // Duración del esquivar
 
     public int maxHealth = 100;
-    private int currentHealth;
+    public int currentHealth;
 
     private Rigidbody rb;
     private Animator animator;
@@ -122,7 +122,12 @@ public class Player_Controller : MonoBehaviour
             GameOver();
         }
     }
-
+    public void RestoreHealthToFull()
+    {
+        currentHealth = maxHealth;
+        UpdateHealthText();
+        Debug.Log("Health restored to full.");
+    }
     void UpdateHealthText()
     {
         if (healthBar.value != currentHealth)

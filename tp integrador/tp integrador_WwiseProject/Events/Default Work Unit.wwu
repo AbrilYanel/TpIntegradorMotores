@@ -3,12 +3,88 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{AF917554-AB74-4869-99C6-CF03715B5E0C}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="Sonido_Ambiente" ID="{1DB4B436-4E46-4F24-93E9-90BFB532781F}">
+				<Event Name="Musica_Fondo" ID="{1DB4B436-4E46-4F24-93E9-90BFB532781F}">
 					<ChildrenList>
 						<Action Name="" ID="{9D9B9646-2057-4A5C-B042-A40EF17E33A3}" ShortID="178432446">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="95" ID="{5849557F-6E63-4958-8652-F5CB46CF9FC2}" WorkUnitID="{25AEF729-8940-4F17-B983-B2170AA5D370}"/>
+									<ObjectRef Name="musicaFondo" ID="{011AECA3-CAEF-47B0-878A-46CFE91084C8}" WorkUnitID="{25AEF729-8940-4F17-B983-B2170AA5D370}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Musica_Fondo_Choir" ID="{66A0E2A5-8206-4BFC-88EF-1930811D8910}">
+					<ChildrenList>
+						<Action Name="" ID="{D745372E-E62F-4D65-B5EC-6F4C98C4F680}" ShortID="797132197">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="musicaFondoNOCHOIR" ID="{41CE1C66-4400-4FE0-8FF8-7C19F069CB2E}" WorkUnitID="{25AEF729-8940-4F17-B983-B2170AA5D370}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{407E758D-BF16-49D0-A6C6-934DA6468358}" ShortID="1036164602">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="musicaFondo" ID="{011AECA3-CAEF-47B0-878A-46CFE91084C8}" WorkUnitID="{25AEF729-8940-4F17-B983-B2170AA5D370}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Ataque" ID="{3A78E6E1-6796-41B7-9EAB-32849A18F52A}">
+					<ChildrenList>
+						<Action Name="" ID="{A1AD4588-03DF-41DA-9508-58637D450A80}" ShortID="307711462">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="New Random Container" ID="{1DC81EC4-EFE5-4C0F-B9FA-3745C68B2289}" WorkUnitID="{25AEF729-8940-4F17-B983-B2170AA5D370}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PortalTrigger" ID="{EC69F5D9-0949-46AE-AEDE-65396B4D8A81}">
+					<ChildrenList>
+						<Action Name="" ID="{B779F56D-FA40-4550-914D-38ED18C24217}" ShortID="904464821">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="end_portal_activation" ID="{832B171A-E954-4D7E-A8E0-1E281748BDF2}" WorkUnitID="{25AEF729-8940-4F17-B983-B2170AA5D370}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="OpenDoor" ID="{5FDBE358-560B-43DD-83E9-A2583E4FA8D8}">
+					<ChildrenList>
+						<Action Name="" ID="{1CB8C453-50E5-4157-A57E-611CD6A8750D}" ShortID="892199949">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="door sound" ID="{436217DF-DE1A-4EB4-A908-C54173E176EB}" WorkUnitID="{25AEF729-8940-4F17-B983-B2170AA5D370}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Walking" ID="{C4D3F93C-C979-4A56-831A-CECB57A61A4C}">
+					<ChildrenList>
+						<Action Name="" ID="{43AA0FC1-1952-4232-A413-D46342D5659B}" ShortID="930659091">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Footsteps" ID="{8A5E9E5E-43E3-4D3A-A3E6-887C90F313CF}" WorkUnitID="{25AEF729-8940-4F17-B983-B2170AA5D370}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Roll" ID="{15924585-514B-4815-A358-901B70C57E85}">
+					<ChildrenList>
+						<Action Name="" ID="{1998C06C-8A39-487D-A1C3-E9EBA55197CA}" ShortID="520170508">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="medroll" ID="{0E19EBC9-C6AC-4F1E-8997-1A6925693DCA}" WorkUnitID="{25AEF729-8940-4F17-B983-B2170AA5D370}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

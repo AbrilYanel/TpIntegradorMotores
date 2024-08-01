@@ -5,7 +5,12 @@
 			<ChildrenList>
 				<SoundBank Name="Main" ID="{1949B055-3675-4C50-B9DF-6CBA26813DF0}">
 					<ObjectInclusionList>
-						<ObjectRef Name="Sonido_Ambiente" ID="{1DB4B436-4E46-4F24-93E9-90BFB532781F}" WorkUnitID="{AF917554-AB74-4869-99C6-CF03715B5E0C}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Ataque" ID="{3A78E6E1-6796-41B7-9EAB-32849A18F52A}" WorkUnitID="{AF917554-AB74-4869-99C6-CF03715B5E0C}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="OpenDoor" ID="{5FDBE358-560B-43DD-83E9-A2583E4FA8D8}" WorkUnitID="{AF917554-AB74-4869-99C6-CF03715B5E0C}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="PortalTrigger" ID="{EC69F5D9-0949-46AE-AEDE-65396B4D8A81}" WorkUnitID="{AF917554-AB74-4869-99C6-CF03715B5E0C}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Roll" ID="{15924585-514B-4815-A358-901B70C57E85}" WorkUnitID="{AF917554-AB74-4869-99C6-CF03715B5E0C}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Walking" ID="{C4D3F93C-C979-4A56-831A-CECB57A61A4C}" WorkUnitID="{AF917554-AB74-4869-99C6-CF03715B5E0C}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Musica_Fondo" ID="{1DB4B436-4E46-4F24-93E9-90BFB532781F}" WorkUnitID="{AF917554-AB74-4869-99C6-CF03715B5E0C}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

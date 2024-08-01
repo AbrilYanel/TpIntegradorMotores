@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="16" SoundBankVersion="145">
+	<RootPaths>
+		<ProjectRoot>../..</ProjectRoot>
+		<SourceFilesRoot>../../.cache/Mac</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>.</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{F56A610C-C7C4-F874-B68B-7ADDF94EBB7A}">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+			</Busses>
+			<SwitchGroups>
+				<SwitchGroup Id="1866025847" Name="footstep">
+					<Switches>
+						<Switch Id="1926317228" Name="Piedra"/>
+						<Switch Id="2306462273" Name="Madera"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{1C4F0FEE-D748-4EDB-DBC8-0624944E652A}">
+			<ShortName>Main</ShortName>
+			<Path>Main.bnk</Path>
+			<Media>
+				<File Id="247388810" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>door sound.wav</ShortName>
+					<CachePath>SFX/door sound_10C4C929.wem</CachePath>
+				</File>
+				<File Id="326547895" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>musicaFondo.wav</ShortName>
+					<CachePath>SFX/musicaFondo_C8CB64E0.wem</CachePath>
+				</File>
+				<File Id="393658174" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mixkit-sword-cutting-and-killing-2168.wav</ShortName>
+					<CachePath>SFX/mixkit-sword-cutting-and-killing-2168_10C4C929.wem</CachePath>
+				</File>
+				<File Id="469030406" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mixkit-dagger-woosh-1487.wav</ShortName>
+					<CachePath>SFX/mixkit-dagger-woosh-1487_10C4C929.wem</CachePath>
+				</File>
+				<File Id="795457043" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mixkit-sword-cutting-flesh-2788.wav</ShortName>
+					<CachePath>SFX/mixkit-sword-cutting-flesh-2788_10C4C929.wem</CachePath>
+				</File>
+				<File Id="982352354" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mixkit-sword-blade-lashes-chainmail-armor-2776.wav</ShortName>
+					<CachePath>SFX/mixkit-sword-blade-lashes-chainmail-armor-2776_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1043565202" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>end_portal_activation.wav</ShortName>
+					<CachePath>SFX/end_portal_activation_10C4C929.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="114943338" Name="Ataque" DurationType="OneShot" DurationMin="0.28403628" DurationMax="2.6249886">
+					<MediaRefs>
+						<MediaRef Id="393658174"/>
+						<MediaRef Id="469030406"/>
+						<MediaRef Id="795457043"/>
+						<MediaRef Id="982352354"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="889812284" Name="Musica_Fondo" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="326547895"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2122995345" Name="OpenDoor" DurationType="OneShot" DurationMin="4" DurationMax="4">
+					<MediaRefs>
+						<MediaRef Id="247388810"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1902176497" Name="PortalTrigger" DurationType="OneShot" DurationMin="7.081338" DurationMax="7.081338">
+					<MediaRefs>
+						<MediaRef Id="1043565202"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{A890C6F6-279E-3B82-8BB4-07D3CEBB16E6}</FileHash>
+</SoundBanksInfo>

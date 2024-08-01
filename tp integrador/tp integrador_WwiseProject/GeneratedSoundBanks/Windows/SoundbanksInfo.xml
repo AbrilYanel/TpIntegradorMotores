@@ -21,24 +21,115 @@
 			<Busses>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
+			<SwitchGroups>
+				<SwitchGroup Id="1866025847" Name="footstep">
+					<Switches>
+						<Switch Id="1926317228" Name="Piedra"/>
+						<Switch Id="2306462273" Name="Madera"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{CBEDE982-9AF1-7D34-04F1-D77D72A7C396}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{09EF23CF-27E0-51E5-575D-F06B7561AEE5}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
-				<File Id="29611181" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>95.wav</ShortName>
-					<CachePath>SFX/95_04734174.wem</CachePath>
+				<File Id="41675508" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>medroll.wav</ShortName>
+					<CachePath>SFX/medroll_10C4C929.wem</CachePath>
+				</File>
+				<File Id="144545739" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>footsteps piedra.wav</ShortName>
+					<CachePath>SFX/footsteps piedra_10C4C929.wem</CachePath>
+				</File>
+				<File Id="198221861" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>footsteps madera.wav</ShortName>
+					<CachePath>SFX/footsteps madera_10C4C929.wem</CachePath>
+				</File>
+				<File Id="247388810" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>door sound.wav</ShortName>
+					<CachePath>SFX/door sound_10C4C929.wem</CachePath>
+				</File>
+				<File Id="326547895" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>musicaFondo.wav</ShortName>
+					<CachePath>SFX/musicaFondo_C8CB64E0.wem</CachePath>
+				</File>
+				<File Id="393658174" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mixkit-sword-cutting-and-killing-2168.wav</ShortName>
+					<CachePath>SFX/mixkit-sword-cutting-and-killing-2168_10C4C929.wem</CachePath>
+				</File>
+				<File Id="469030406" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mixkit-dagger-woosh-1487.wav</ShortName>
+					<CachePath>SFX/mixkit-dagger-woosh-1487_10C4C929.wem</CachePath>
+				</File>
+				<File Id="795457043" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mixkit-sword-cutting-flesh-2788.wav</ShortName>
+					<CachePath>SFX/mixkit-sword-cutting-flesh-2788_10C4C929.wem</CachePath>
+				</File>
+				<File Id="982352354" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mixkit-sword-blade-lashes-chainmail-armor-2776.wav</ShortName>
+					<CachePath>SFX/mixkit-sword-blade-lashes-chainmail-armor-2776_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1043565202" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>end_portal_activation.wav</ShortName>
+					<CachePath>SFX/end_portal_activation_C5579977.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
-				<Event Id="3715251287" Name="Sonido_Ambiente" DurationType="Infinite">
+				<Event Id="114943338" Name="Ataque" DurationType="OneShot" DurationMin="0.28403628" DurationMax="2.6249886">
 					<MediaRefs>
-						<MediaRef Id="29611181"/>
+						<MediaRef Id="393658174"/>
+						<MediaRef Id="469030406"/>
+						<MediaRef Id="795457043"/>
+						<MediaRef Id="982352354"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="889812284" Name="Musica_Fondo" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="326547895"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2122995345" Name="OpenDoor" DurationType="OneShot" DurationMin="4" DurationMax="4">
+					<MediaRefs>
+						<MediaRef Id="247388810"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1902176497" Name="PortalTrigger" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="1043565202"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2026920480" Name="Roll" DurationType="OneShot" DurationMin="1.478122" DurationMax="1.478122">
+					<MediaRefs>
+						<MediaRef Id="41675508"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="340271938" Name="Walking" DurationType="OneShot" DurationMin="0.9670277" DurationMax="1.922916">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1866025847" Id="2306462273" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="198221861"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1866025847" Id="1926317228"/>
+							<MediaRefs>
+								<MediaRef Id="144545739"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
 			</Events>
+			<SwitchGroups>
+				<SwitchGroup Id="1866025847" Name="footstep">
+					<Switches>
+						<Switch Id="1926317228" Name="Piedra"/>
+						<Switch Id="2306462273" Name="Madera"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{B9DF9070-1B87-8712-B605-04D18255901D}</FileHash>
+	<FileHash>{CA6A0EA4-3BF4-4ECC-A97D-D61CF4803C90}</FileHash>
 </SoundBanksInfo>

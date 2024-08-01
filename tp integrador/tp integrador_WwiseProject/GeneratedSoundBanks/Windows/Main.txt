@@ -1,6 +1,27 @@
 Event	ID	Name			Wwise Object Path	Notes
-	3715251287	Sonido_Ambiente			\Default Work Unit\Sonido_Ambiente	
+	114943338	Ataque			\Default Work Unit\Ataque	
+	340271938	Walking			\Default Work Unit\Walking	
+	889812284	Musica_Fondo			\Default Work Unit\Musica_Fondo	
+	1902176497	PortalTrigger			\Default Work Unit\PortalTrigger	
+	2026920480	Roll			\Default Work Unit\Roll	
+	2122995345	OpenDoor			\Default Work Unit\OpenDoor	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	1866025847	footstep			\Default Work Unit\footstep	
+
+Switch	ID	Name	Switch Group			Notes
+	1926317228	Piedra	footstep			
+	2306462273	Madera	footstep			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	29611181	95	C:\Users\Cheee\OneDrive\Documentos\GitHub\TpIntegrador\tp integrador\tp integrador_WwiseProject\.cache\Windows\SFX\95_04734174.wem		\Actor-Mixer Hierarchy\Default Work Unit\95		21690000
+	41675508	medroll	C:\Users\Cheee\OneDrive\Documentos\GitHub\TpIntegrador\tp integrador\tp integrador_WwiseProject\.cache\Windows\SFX\medroll_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\medroll		122208
+	144545739	footsteps piedra	C:\Users\Cheee\OneDrive\Documentos\GitHub\TpIntegrador\tp integrador\tp integrador_WwiseProject\.cache\Windows\SFX\footsteps piedra_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\Piedra\footsteps piedra		264696
+	198221861	footsteps madera	C:\Users\Cheee\OneDrive\Documentos\GitHub\TpIntegrador\tp integrador\tp integrador_WwiseProject\.cache\Windows\SFX\footsteps madera_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\Madera\footsteps madera		264696
+	247388810	door sound	C:\Users\Cheee\OneDrive\Documentos\GitHub\TpIntegrador\tp integrador\tp integrador_WwiseProject\.cache\Windows\SFX\door sound_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\door sound		705696
+	326547895	musicaFondo	C:\Users\Cheee\OneDrive\Documentos\GitHub\TpIntegrador\tp integrador\tp integrador_WwiseProject\.cache\Windows\SFX\musicaFondo_C8CB64E0.wem		\Actor-Mixer Hierarchy\Default Work Unit\musicaFondo		13943652
+	393658174	mixkit-sword-cutting-and-killing-2168	C:\Users\Cheee\OneDrive\Documentos\GitHub\TpIntegrador\tp integrador\tp integrador_WwiseProject\.cache\Windows\SFX\mixkit-sword-cutting-and-killing-2168_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\New Random Container\mixkit-sword-cutting-and-killing-2168		463144
+	469030406	mixkit-dagger-woosh-1487	C:\Users\Cheee\OneDrive\Documentos\GitHub\TpIntegrador\tp integrador\tp integrador_WwiseProject\.cache\Windows\SFX\mixkit-dagger-woosh-1487_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\New Random Container\mixkit-dagger-woosh-1487		50200
+	795457043	mixkit-sword-cutting-flesh-2788	C:\Users\Cheee\OneDrive\Documentos\GitHub\TpIntegrador\tp integrador\tp integrador_WwiseProject\.cache\Windows\SFX\mixkit-sword-cutting-flesh-2788_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\New Random Container\mixkit-sword-cutting-flesh-2788		351824
+	982352354	mixkit-sword-blade-lashes-chainmail-armor-2776	C:\Users\Cheee\OneDrive\Documentos\GitHub\TpIntegrador\tp integrador\tp integrador_WwiseProject\.cache\Windows\SFX\mixkit-sword-blade-lashes-chainmail-armor-2776_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\New Random Container\mixkit-sword-blade-lashes-chainmail-armor-2776		200808
+	1043565202	end_portal_activation	C:\Users\Cheee\OneDrive\Documentos\GitHub\TpIntegrador\tp integrador\tp integrador_WwiseProject\.cache\Windows\SFX\end_portal_activation_C5579977.wem		\Actor-Mixer Hierarchy\Default Work Unit\end_portal_activation		1249244
 

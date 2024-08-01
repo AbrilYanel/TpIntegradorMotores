@@ -26,6 +26,12 @@ public class Player_Controller : MonoBehaviour
     public Slider healthBar;
 
     private bool isDodging = false;
+    private float lastStepTime = 0f; // Tiempo de la última reproducción del sonido de pasos
+    public float stepInterval = 0.2f; // Intervalo entre sonidos de pasos
+
+    public AK.Wwise.Event attackSoundEvent;
+    public AK.Wwise.Event walkingSoundEvent; // Evento para el sonido de caminar
+    public AK.Wwise.Event rollingSoundEvent;
 
     void Start()
     {
@@ -61,6 +67,13 @@ public class Player_Controller : MonoBehaviour
             {
                 Vector3 moveDirection = transform.forward * vertical * moveSpeed * Time.fixedDeltaTime;
                 rb.MovePosition(rb.position + moveDirection);
+
+                // Reproduce el sonido de pasos si ha pasado el intervalo
+                if (Time.time - lastStepTime > stepInterval)
+                {
+                    lastStepTime = Time.time;
+                    walkingSoundEvent.Post(gameObject);
+                }
             }
 
             // Update the animator parameters
@@ -69,12 +82,15 @@ public class Player_Controller : MonoBehaviour
             if (Input.GetMouseButtonDown(0)) // Disparar con click izquierdo
             {
                 animator.SetTrigger("isAttacking");
+                attackSoundEvent.Post(gameObject);
+
                 ShootProjectile();
             }
 
             if (Input.GetMouseButtonDown(1)) // Esquivar con click derecho
             {
                 StartCoroutine(Dodge());
+                rollingSoundEvent.Post(gameObject);
             }
         }
     }

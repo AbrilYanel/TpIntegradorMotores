@@ -25,6 +25,7 @@ public class Enemy_Controller : MonoBehaviour
     private Animator animator;
     private bool isPlayerInRange;
     private bool isDead = false;
+    public AK.Wwise.Event Event;
 
     void Start()
     {
@@ -128,6 +129,8 @@ public class Enemy_Controller : MonoBehaviour
             AberturaPuerta doorOpener = puertaDerecha.GetComponent<AberturaPuerta>();
             if (doorOpener != null)
             {
+                Event.Post(gameObject);
+
                 doorOpener.OpenDoor();
             }
             else

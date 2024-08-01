@@ -3,12 +3,12 @@
 	<AudioObjects>
 		<WorkUnit Name="Default Work Unit" ID="{25AEF729-8940-4F17-B983-B2170AA5D370}" PersistMode="Standalone">
 			<ChildrenList>
-				<Sound Name="95" ID="{5849557F-6E63-4958-8652-F5CB46CF9FC2}" ShortID="417420470">
+				<Sound Name="musicaFondo" ID="{011AECA3-CAEF-47B0-878A-46CFE91084C8}" ShortID="189214933">
 					<PropertyList>
 						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-8</Value>
+								<Value>-7</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -21,22 +21,655 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<AudioFileSource Name="95" ID="{C7DEDD12-DD13-4CC8-B621-8E88BC418864}">
+						<AudioFileSource Name="musicaFondo" ID="{9F96F9EA-6EC8-4F6C-B86D-C513A50E9AFF}">
 							<PropertyList>
-								<Property Name="CrossfadeDuration" Type="Real64" Value="3000"/>
-								<Property Name="LoopBegin" Type="Real64" Value="1.71729563333713"/>
-								<Property Name="LoopEnd" Type="Real64" Value="120.897612586934"/>
+								<Property Name="CrossfadeDuration" Type="Real64" Value="574.297193221126"/>
+								<Property Name="LoopBegin" Type="Real64" Value="0.287148596610563"/>
+								<Property Name="LoopEnd" Type="Real64" Value="26.2671849231461"/>
 								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 							</PropertyList>
 							<Language>SFX</Language>
-							<AudioFile>95.wav</AudioFile>
+							<AudioFile>musicaFondo.wav</AudioFile>
 							<MediaIDList>
-								<MediaID ID="29611181"/>
+								<MediaID ID="326547895"/>
 							</MediaIDList>
 						</AudioFileSource>
 					</ChildrenList>
 					<ActiveSourceList>
-						<ActiveSource Name="95" ID="{C7DEDD12-DD13-4CC8-B621-8E88BC418864}" Platform="Linked"/>
+						<ActiveSource Name="musicaFondo" ID="{9F96F9EA-6EC8-4F6C-B86D-C513A50E9AFF}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="musicaFondoNOCHOIR" ID="{41CE1C66-4400-4FE0-8FF8-7C19F069CB2E}" ShortID="755983318">
+					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-13</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{46D11340-3633-4B45-840D-5BB96B8701A7}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{68A6979A-F3E4-4564-88C3-D28858C5BF94}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="musicaFondoNOCHOIR" ID="{1E4181B3-0156-4DDA-B54D-7CC7B6B20070}">
+							<PropertyList>
+								<Property Name="CrossfadeDuration" Type="Real64" Value="272.200792404873"/>
+								<Property Name="LoopBegin" Type="Real64" Value="0.136100396202436"/>
+								<Property Name="LoopEnd" Type="Real64" Value="26.0587351424086"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>musicaFondoNOCHOIR.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="113702487"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="musicaFondoNOCHOIR" ID="{1E4181B3-0156-4DDA-B54D-7CC7B6B20070}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<RandomSequenceContainer Name="New Random Container" ID="{1DC81EC4-EFE5-4C0F-B9FA-3745C68B2289}" ShortID="681430508">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-5</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{46D11340-3633-4B45-840D-5BB96B8701A7}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{68A6979A-F3E4-4564-88C3-D28858C5BF94}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="mixkit-dagger-woosh-1487" ID="{43C26955-3BBD-4852-9E3E-CB9BDA3E0048}" ShortID="970754348">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{46D11340-3633-4B45-840D-5BB96B8701A7}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{68A6979A-F3E4-4564-88C3-D28858C5BF94}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="mixkit-dagger-woosh-1487" ID="{6D728DAD-1A6C-4561-8E1D-3C44B6B8D367}">
+									<Language>SFX</Language>
+									<AudioFile>mixkit-dagger-woosh-1487.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="469030406"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="mixkit-dagger-woosh-1487" ID="{6D728DAD-1A6C-4561-8E1D-3C44B6B8D367}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="mixkit-sword-blade-lashes-chainmail-armor-2776" ID="{C78EE16F-B526-4850-AE32-F7AE06AE9609}" ShortID="844081419">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{46D11340-3633-4B45-840D-5BB96B8701A7}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{68A6979A-F3E4-4564-88C3-D28858C5BF94}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="mixkit-sword-blade-lashes-chainmail-armor-2776" ID="{A69019F8-5943-4622-96E1-F4BE82DA3774}">
+									<Language>SFX</Language>
+									<AudioFile>mixkit-sword-blade-lashes-chainmail-armor-2776.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="982352354"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="mixkit-sword-blade-lashes-chainmail-armor-2776" ID="{A69019F8-5943-4622-96E1-F4BE82DA3774}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="mixkit-sword-cutting-and-killing-2168" ID="{EB13F2A8-EB59-48B9-9C7A-12FECBDF7448}" ShortID="567230118">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{46D11340-3633-4B45-840D-5BB96B8701A7}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{68A6979A-F3E4-4564-88C3-D28858C5BF94}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="mixkit-sword-cutting-and-killing-2168" ID="{224B91ED-ECB3-4802-998B-508FD229A667}">
+									<Language>SFX</Language>
+									<AudioFile>mixkit-sword-cutting-and-killing-2168.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="393658174"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="mixkit-sword-cutting-and-killing-2168" ID="{224B91ED-ECB3-4802-998B-508FD229A667}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="mixkit-sword-cutting-flesh-2788" ID="{5B0D5273-5524-44A5-96D6-32B5D43B88C9}" ShortID="880482663">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{46D11340-3633-4B45-840D-5BB96B8701A7}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{68A6979A-F3E4-4564-88C3-D28858C5BF94}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="mixkit-sword-cutting-flesh-2788" ID="{0CBC0503-6DC7-49DA-8ABA-0312BCC0F461}">
+									<Language>SFX</Language>
+									<AudioFile>mixkit-sword-cutting-flesh-2788.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="795457043"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="mixkit-sword-cutting-flesh-2788" ID="{0CBC0503-6DC7-49DA-8ABA-0312BCC0F461}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<Sound Name="end_portal_activation" ID="{832B171A-E954-4D7E-A8E0-1E281748BDF2}" ShortID="500498482">
+					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-20</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{46D11340-3633-4B45-840D-5BB96B8701A7}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{68A6979A-F3E4-4564-88C3-D28858C5BF94}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="end_portal_activation" ID="{18AA82BD-2940-4062-B07B-4DEE78A2B4DB}">
+							<PropertyList>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>end_portal_activation.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="1043565202"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="end_portal_activation" ID="{18AA82BD-2940-4062-B07B-4DEE78A2B4DB}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="door sound" ID="{436217DF-DE1A-4EB4-A908-C54173E176EB}" ShortID="482210172">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-13</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{46D11340-3633-4B45-840D-5BB96B8701A7}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{68A6979A-F3E4-4564-88C3-D28858C5BF94}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="door sound" ID="{D9461FF1-F228-479D-A163-40EA0A1AD9F3}">
+							<Language>SFX</Language>
+							<AudioFile>door sound.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="247388810"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="door sound" ID="{D9461FF1-F228-479D-A163-40EA0A1AD9F3}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<SwitchContainer Name="Footsteps" ID="{8A5E9E5E-43E3-4D3A-A3E6-887C90F313CF}" ShortID="857532921">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-11</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{46D11340-3633-4B45-840D-5BB96B8701A7}"/>
+						</Reference>
+						<Reference Name="DefaultSwitchOrState">
+							<ObjectRef Name="Madera" ID="{80F4C578-68F3-4854-88DA-0094220860C8}" WorkUnitID="{8D7F5D73-20B8-40E1-810A-963D2795AAF3}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{68A6979A-F3E4-4564-88C3-D28858C5BF94}"/>
+						</Reference>
+						<Reference Name="SwitchGroupOrStateGroup">
+							<ObjectRef Name="footstep" ID="{2689B68B-E523-445C-B842-8C879A053308}" WorkUnitID="{8D7F5D73-20B8-40E1-810A-963D2795AAF3}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<RandomSequenceContainer Name="Madera" ID="{4ADE5F90-EFC9-4BF4-9C42-03AE6DE05F08}" ShortID="547821061">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{46D11340-3633-4B45-840D-5BB96B8701A7}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{68A6979A-F3E4-4564-88C3-D28858C5BF94}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="footsteps madera" ID="{F1806A6E-AEDA-4E4E-B754-6E347FB2E19E}" ShortID="142999792">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{46D11340-3633-4B45-840D-5BB96B8701A7}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{68A6979A-F3E4-4564-88C3-D28858C5BF94}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="footsteps madera" ID="{E628DD58-A174-4192-A96B-E6FA0F644C7A}">
+											<Language>SFX</Language>
+											<AudioFile>footsteps madera.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="198221861"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="footsteps madera" ID="{E628DD58-A174-4192-A96B-E6FA0F644C7A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="footsteps madera_01" ID="{7B3DF00B-7ED6-44D2-9EDD-036E972CA4E4}" ShortID="1001490466">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>280</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{46D11340-3633-4B45-840D-5BB96B8701A7}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{68A6979A-F3E4-4564-88C3-D28858C5BF94}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="footsteps madera" ID="{27A6F328-7D56-488A-A737-ACACEA59310B}">
+											<Language>SFX</Language>
+											<AudioFile>footsteps madera.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="198221861"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="footsteps madera" ID="{27A6F328-7D56-488A-A737-ACACEA59310B}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="footsteps madera_02" ID="{E72C6AD9-3E38-4E03-91C7-C1F81C30B42A}" ShortID="96644358">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>760</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{46D11340-3633-4B45-840D-5BB96B8701A7}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{68A6979A-F3E4-4564-88C3-D28858C5BF94}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="footsteps madera" ID="{4CC967DD-D6B4-4651-9A28-84D425413E72}">
+											<Language>SFX</Language>
+											<AudioFile>footsteps madera.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="198221861"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="footsteps madera" ID="{4CC967DD-D6B4-4651-9A28-84D425413E72}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="footsteps madera_03" ID="{69033340-676E-4F0E-AF3D-E3FBB7E68507}" ShortID="783722828">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>-430</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{46D11340-3633-4B45-840D-5BB96B8701A7}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{68A6979A-F3E4-4564-88C3-D28858C5BF94}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="footsteps madera" ID="{45F2EB1D-1964-4144-A9AC-7624D2007B58}">
+											<Language>SFX</Language>
+											<AudioFile>footsteps madera.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="198221861"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="footsteps madera" ID="{45F2EB1D-1964-4144-A9AC-7624D2007B58}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Piedra" ID="{DD5EE814-0AD2-4867-B299-39D255BBD326}" ShortID="1041924578">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{46D11340-3633-4B45-840D-5BB96B8701A7}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{68A6979A-F3E4-4564-88C3-D28858C5BF94}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="footsteps piedra" ID="{A68F7989-A694-4F6F-BACF-BD1C116F5FB9}" ShortID="78393557">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{46D11340-3633-4B45-840D-5BB96B8701A7}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{68A6979A-F3E4-4564-88C3-D28858C5BF94}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="footsteps piedra" ID="{D14685DD-A437-4BFB-A267-D56D45FEA501}">
+											<Language>SFX</Language>
+											<AudioFile>footsteps piedra.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="144545739"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="footsteps piedra" ID="{D14685DD-A437-4BFB-A267-D56D45FEA501}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="footsteps piedra_01" ID="{FCB3DCB6-8BB4-4434-B6E0-9E1EE8E7CC65}" ShortID="349942355">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>170</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{46D11340-3633-4B45-840D-5BB96B8701A7}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{68A6979A-F3E4-4564-88C3-D28858C5BF94}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="footsteps piedra" ID="{5CFB1DF6-DDFE-43D9-8B22-A7EDA426C7D8}">
+											<Language>SFX</Language>
+											<AudioFile>footsteps piedra.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="144545739"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="footsteps piedra" ID="{5CFB1DF6-DDFE-43D9-8B22-A7EDA426C7D8}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="footsteps piedra_02" ID="{4CD3C101-0588-4A94-A17C-DE064E8B23CB}" ShortID="749640137">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>260</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{46D11340-3633-4B45-840D-5BB96B8701A7}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{68A6979A-F3E4-4564-88C3-D28858C5BF94}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="footsteps piedra" ID="{DA7A2300-21F7-4FF8-B003-75ECA17FC0EB}">
+											<Language>SFX</Language>
+											<AudioFile>footsteps piedra.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="144545739"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="footsteps piedra" ID="{DA7A2300-21F7-4FF8-B003-75ECA17FC0EB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="footsteps piedra_03" ID="{BE97FC45-30C7-4FA1-A3A3-E43670ECAD77}" ShortID="656916043">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>-130</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{46D11340-3633-4B45-840D-5BB96B8701A7}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{68A6979A-F3E4-4564-88C3-D28858C5BF94}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="footsteps piedra" ID="{30BE7F53-D884-4DB4-9338-D8E01720A272}">
+											<Language>SFX</Language>
+											<AudioFile>footsteps piedra.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="144545739"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="footsteps piedra" ID="{30BE7F53-D884-4DB4-9338-D8E01720A272}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="footsteps piedra_04" ID="{7F35D9C2-3755-45F9-BC78-7E9BC3FBA00D}" ShortID="472338350">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>-280</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{46D11340-3633-4B45-840D-5BB96B8701A7}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{68A6979A-F3E4-4564-88C3-D28858C5BF94}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="footsteps piedra" ID="{5B9C87D2-49F4-4AE8-9F14-18EB6767A1A0}">
+											<Language>SFX</Language>
+											<AudioFile>footsteps piedra.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="144545739"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="footsteps piedra" ID="{5B9C87D2-49F4-4AE8-9F14-18EB6767A1A0}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+					</ChildrenList>
+					<GroupingInfo>
+						<GroupingBehaviorList>
+							<GroupingBehavior>
+								<ItemRef Name="Piedra" ID="{DD5EE814-0AD2-4867-B299-39D255BBD326}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="Madera" ID="{4ADE5F90-EFC9-4BF4-9C42-03AE6DE05F08}"/>
+							</GroupingBehavior>
+						</GroupingBehaviorList>
+						<GroupingList>
+							<Grouping>
+								<SwitchRef Name="Madera" ID="{80F4C578-68F3-4854-88DA-0094220860C8}"/>
+								<ItemList>
+									<ItemRef Name="Madera" ID="{4ADE5F90-EFC9-4BF4-9C42-03AE6DE05F08}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="Piedra" ID="{FD62C2E5-5394-4DDB-B299-437D540527E4}"/>
+								<ItemList>
+									<ItemRef Name="Piedra" ID="{DD5EE814-0AD2-4867-B299-39D255BBD326}"/>
+								</ItemList>
+							</Grouping>
+						</GroupingList>
+					</GroupingInfo>
+				</SwitchContainer>
+				<Sound Name="medroll" ID="{0E19EBC9-C6AC-4F1E-8997-1A6925693DCA}" ShortID="75678479">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>-260</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-31</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{46D11340-3633-4B45-840D-5BB96B8701A7}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{68A6979A-F3E4-4564-88C3-D28858C5BF94}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="medroll" ID="{F5107239-1EF4-4E9F-9793-640A889B3825}">
+							<Language>SFX</Language>
+							<AudioFile>medroll.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="41675508"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="medroll" ID="{F5107239-1EF4-4E9F-9793-640A889B3825}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="particula 2" ID="{1376AA22-DE57-4AD5-A4BF-A50B383ACED7}" ShortID="613032455">
+					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>41</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>-150</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-16</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{46D11340-3633-4B45-840D-5BB96B8701A7}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{68A6979A-F3E4-4564-88C3-D28858C5BF94}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="particula 2" ID="{4BE1A680-F93C-44DA-A648-EE035716A04E}">
+							<PropertyList>
+								<Property Name="CrossfadeDuration" Type="Real64" Value="723.331"/>
+								<Property Name="LoopBegin" Type="Real64" Value="1.20841546060116"/>
+								<Property Name="LoopEnd" Type="Real64" Value="2.92773072661086"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>particula 2.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="619721967"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="particula 2" ID="{4BE1A680-F93C-44DA-A648-EE035716A04E}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>

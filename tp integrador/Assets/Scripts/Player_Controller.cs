@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static UnityEditor.Searcher.SearcherWindow.Alignment;
+using AK.Wwise;
+using static ak;
 
 public class Player_Controller : MonoBehaviour
 {
@@ -32,6 +34,7 @@ public class Player_Controller : MonoBehaviour
     public AK.Wwise.Event attackSoundEvent;
     public AK.Wwise.Event walkingSoundEvent; // Evento para el sonido de caminar
     public AK.Wwise.Event rollingSoundEvent;
+   
 
     void Start()
     {
@@ -45,6 +48,15 @@ public class Player_Controller : MonoBehaviour
         healthBar.value = currentHealth;
 
         UpdateHealthText();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            AkSoundEngine.StopAll();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     void FixedUpdate()
@@ -122,12 +134,14 @@ public class Player_Controller : MonoBehaviour
             GameOver();
         }
     }
+
     public void RestoreHealthToFull()
     {
         currentHealth = maxHealth;
         UpdateHealthText();
         Debug.Log("Health restored to full.");
     }
+
     void UpdateHealthText()
     {
         if (healthBar.value != currentHealth)
@@ -163,7 +177,7 @@ public class Player_Controller : MonoBehaviour
     {
         // Aquí puedes añadir lógica para reiniciar el juego, mostrar un mensaje de game over, etc.
         Debug.Log("Game Over");
-        // Ejemplo: reiniciar la escena actual
+        AkSoundEngine.StopAll();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

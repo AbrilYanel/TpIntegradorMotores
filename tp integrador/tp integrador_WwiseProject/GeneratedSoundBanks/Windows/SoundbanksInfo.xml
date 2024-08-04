@@ -30,7 +30,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{28E0F710-B541-D5CC-5CDD-52AF2CCCD8E2}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{6C6A9A4B-0E2D-68A8-8C34-E37E7B70787C}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -41,6 +41,10 @@
 				<File Id="144545739" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>footsteps piedra.wav</ShortName>
 					<CachePath>SFX/footsteps piedra_10C4C929.wem</CachePath>
+				</File>
+				<File Id="165803937" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Goëtia. ｜ Dark Magic Music.wav</ShortName>
+					<CachePath>SFX/Goëtia. ｜ Dark Magic Music_10C4C929.wem</CachePath>
 				</File>
 				<File Id="198221861" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>footsteps madera.wav</ShortName>
@@ -82,6 +86,11 @@
 						<MediaRef Id="469030406"/>
 						<MediaRef Id="795457043"/>
 						<MediaRef Id="982352354"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3604647259" Name="MainMenu" DurationType="OneShot" DurationMin="301.1628" DurationMax="301.1628">
+					<MediaRefs>
+						<MediaRef Id="165803937"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="889812284" Name="Musica_Fondo" DurationType="Infinite">
@@ -131,5 +140,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{6D08F7E4-55C5-A1EE-0569-0B1D3E368A8F}</FileHash>
+	<FileHash>{31880682-3B8B-1F8A-E372-5CF744EE5917}</FileHash>
 </SoundBanksInfo>

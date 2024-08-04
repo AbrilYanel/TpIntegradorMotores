@@ -14,6 +14,7 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID ATAQUE = 114943338U;
+        static const AkUniqueID MAINMENU = 3604647259U;
         static const AkUniqueID MUSICA_FONDO = 889812284U;
         static const AkUniqueID OPENDOOR = 2122995345U;
         static const AkUniqueID PORTALTRIGGER = 1902176497U;

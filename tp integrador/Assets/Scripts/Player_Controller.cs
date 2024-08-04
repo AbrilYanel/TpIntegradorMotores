@@ -4,7 +4,7 @@ using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
+
 using AK.Wwise;
 using static ak;
 using TMPro.Examples;
@@ -57,6 +57,11 @@ public class Player_Controller : MonoBehaviour
         {
             AkSoundEngine.StopAll();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
 

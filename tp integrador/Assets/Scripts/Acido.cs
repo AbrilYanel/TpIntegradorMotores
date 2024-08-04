@@ -9,7 +9,8 @@ public class Acido : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player crossed the trigger plane. Restarting scene...");
+            AkSoundEngine.StopAll();
+            
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }

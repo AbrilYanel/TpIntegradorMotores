@@ -5,6 +5,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1902176497	PortalTrigger			\Default Work Unit\PortalTrigger	
 	2026920480	Roll			\Default Work Unit\Roll	
 	2122995345	OpenDoor			\Default Work Unit\OpenDoor	
+	3604647259	MainMenu			\Default Work Unit\MainMenu	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
 	1866025847	footstep			\Default Work Unit\footstep	
@@ -16,6 +17,7 @@ Switch	ID	Name	Switch Group			Notes
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	41675508	medroll	C:\Users\Cheee\OneDrive\Documentos\GitHub\TpIntegrador\tp integrador\tp integrador_WwiseProject\.cache\Windows\SFX\medroll_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\medroll		122208
 	144545739	footsteps piedra	C:\Users\Cheee\OneDrive\Documentos\GitHub\TpIntegrador\tp integrador\tp integrador_WwiseProject\.cache\Windows\SFX\footsteps piedra_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\Piedra\footsteps piedra		264696
+	165803937	Goëtia_ ｜ Dark Magic Music	C:\Users\Cheee\OneDrive\Documentos\GitHub\TpIntegrador\tp integrador\tp integrador_WwiseProject\.cache\Windows\SFX\Goëtia. ｜ Dark Magic Music_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Goëtia_ ｜ Dark Magic Music		53125216
 	198221861	footsteps madera	C:\Users\Cheee\OneDrive\Documentos\GitHub\TpIntegrador\tp integrador\tp integrador_WwiseProject\.cache\Windows\SFX\footsteps madera_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\Madera\footsteps madera		264696
 	247388810	door sound	C:\Users\Cheee\OneDrive\Documentos\GitHub\TpIntegrador\tp integrador\tp integrador_WwiseProject\.cache\Windows\SFX\door sound_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\door sound		705696
 	326547895	musicaFondo	C:\Users\Cheee\OneDrive\Documentos\GitHub\TpIntegrador\tp integrador\tp integrador_WwiseProject\.cache\Windows\SFX\musicaFondo_C8CB64E0.wem		\Actor-Mixer Hierarchy\Default Work Unit\musicaFondo		13943652

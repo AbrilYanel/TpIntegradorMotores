@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using static UnityEditor.Searcher.SearcherWindow.Alignment;
 using AK.Wwise;
 using static ak;
+using TMPro.Examples;
 
 public class Player_Controller : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class Player_Controller : MonoBehaviour
     public AK.Wwise.Event attackSoundEvent;
     public AK.Wwise.Event walkingSoundEvent; // Evento para el sonido de caminar
     public AK.Wwise.Event rollingSoundEvent;
-   
+
 
     void Start()
     {
